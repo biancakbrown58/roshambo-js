@@ -1,52 +1,78 @@
 let player1Choice = ''
 let player2Choice = ''
 
+const choseRock1 = document.querySelector('.choice1')
+const choseRock2 = document.querySelector('.choice2')
+const chosePaper = document.querySelector('.choice1')
+const chosePaper2 = document.querySelector('.choice2')
+const choseScissors = document.querySelector('.choice1')
+const choseScissors2 = document.querySelector('.choice2')
+
 // Player 1 Rock
 function handleClickRock(event) {
   const buttonClicked = event.target.value
-  const choseRock = document.querySelector('.choice1')
-  choseRock.textContent = buttonClicked
+  choseRock1.textContent = buttonClicked
   player1Choice = buttonClicked
-  console.log(player1Choice)
 }
 
+// Player 1 Paper
 function handleClickPaper(event) {
   const buttonClickedP = event.target.value
-  const chosePaper = document.querySelector('.choice1')
   chosePaper.textContent = buttonClickedP
+  player1Choice = buttonClickedP
 }
 
+// Player 1 Scissors
 function handleClickScissors(event) {
   const buttonClickedS = event.target.value
-  const choseScissors = document.querySelector('.choice1')
   choseScissors.textContent = buttonClickedS
+  player1Choice = buttonClickedS
 }
 // Player 2 Rock
 function handleClickRock2(event) {
   const buttonClicked = event.target.value
-  const choseRock = document.querySelector('.choice2')
-  choseRock.textContent = buttonClicked
+  choseRock2.textContent = buttonClicked
   player2Choice = buttonClicked
-  console.log(player2Choice)
+  if (player1Choice === 'Rock' && player2Choice === 'Rock') {
+    window.alert('Tie!')
+    // player1Choice = document.querySelector('img .rockImg').className
+  } else if (player1Choice === 'Paper' && player2Choice === 'Rock') {
+    window.alert('Paper covers rock. Player 1 wins')
+  } else if (player1Choice === 'Scissors' && player2Choice === 'Rock') {
+    window.alert('Rock smashes Scissors. Player 2 wins')
+  } else {
+    console.log('Player 1 choose')
+  }
 }
 
 // Player 2 Paper
 function handleClickPaper2(event) {
   const buttonClicked = event.target.value
-  const chosePaper = document.querySelector('.choice2')
-  chosePaper.textContent = buttonClicked
+  chosePaper2.textContent = buttonClicked
   player2Choice = buttonClicked
-  console.log(player2Choice)
+  if (player1Choice === 'Rock' && player2Choice === 'Paper') {
+    window.alert('Paper covers rock. Player 2 wins')
+  } else if (player1Choice === 'Scissors' && player2Choice === 'Paper') {
+    window.alert('Scissors cuts paper. Player 1 wins')
+  } else {
+    window.alert('Tie!')
+  }
 }
 
 // Player 2 Scissors
 function handleClickScissors2(event) {
   const buttonClicked = event.target.value
-  const choseScissors = document.querySelector('.choice2')
-  choseScissors.textContent = buttonClicked
+  choseScissors2.textContent = buttonClicked
   player2Choice = buttonClicked
-  console.log(player2Choice)
+  if (player1Choice === 'Rock' && player2Choice === 'Scissors') {
+    window.alert('Rock smashes scissors. Player 1 wins.')
+  } else if (player1Choice === 'Paper' && player2Choice === 'Scissors') {
+    window.alert('Scissors cuts paper. Player 2 wins')
+  } else {
+    window.alert('Tie!')
+  }
 }
+
 function main() {
   // Player 1
   // Rock
@@ -74,5 +100,8 @@ function main() {
   const choiceS2 = document.querySelector('.player2 button.scissors')
   choiceS2.addEventListener('click', handleClickScissors2)
 }
+// document
+//   .querySelector('img.rockImg')
+//   .addEventListener('click', handleClickRock2)
 
 document.addEventListener('DOMContentLoaded', main)

@@ -44,7 +44,7 @@ section p {
 section h3 {
   margin: 1rem 0;
   font-family: Monospace;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 fieldset {
@@ -67,4 +67,13 @@ fieldset button {
 
 fieldset i.subtract {
   color: #f64545;
+}
+.rockImg {
+  height: 3rem;
+}
+.choice1 {
+  height: 3rem;
+}
+img .rockImg {
+  display: none;
 }
